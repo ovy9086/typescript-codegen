@@ -1,27 +1,49 @@
 {
   "compilerOptions": {
+    "strict": true,
+    /* Basic Options */
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "moduleResolution": "node",
+    "declaration": true,
+    /* Additional Checks */
+    "noUnusedLocals": false, /* Report errors on unused locals. */ // TODO: reenable (unused imports!)
+    "noUnusedParameters": false, /* Report errors on unused parameters. */ // TODO: set to true again
+    "noImplicitReturns": true, /* Report error when not all code paths in function return a value. */
+    "noFallthroughCasesInSwitch": true, /* Report errors for fallthrough cases in switch statement. */
+    "removeComments": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "noLib": false,
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
     "noEmit": true,
+    "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      "@/*": ["./*"]
-    }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "dist",
+    "node_modules"
+  ],
+  "filesGlob": [
+    "./**/*.ts"
+  ],
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }
