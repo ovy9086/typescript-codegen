@@ -7,12 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate-openapi": "openapi-typescript ./schemas/openapi.yaml -o ./dist/schema.d.ts"
+    "update-types": "yarn generate-schema && yarn generate-ts",
+    "generate-schema": "next-swagger-doc-cli lib/open-api-config.json --output ./public/schema.yaml",
+    "generate-ts": "openapi-typescript ./public/schema.yaml -o ./dist/schema.d.ts"
   },
   "dependencies": {
     "next": "14.0.2",
+    "next-swagger-doc": "^0.4.0",
     "react": "^18",
     "react-dom": "^18",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-react": "^5.9.3",
     "zod": "^3.22.4"
   },
   "devDependencies": {
@@ -20,6 +25,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/swagger-ui-react": "^4.18.3",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.2",
