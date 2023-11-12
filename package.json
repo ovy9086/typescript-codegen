@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "update-types": "yarn generate-schema && yarn generate-ts",
-    "generate-schema": "next-swagger-doc-cli lib/open-api-config.json --output ./public/schema.yaml",
-    "generate-ts": "openapi-typescript ./public/schema.yaml -o ./dist/schema.d.ts"
+    "generate-schema": "next-swagger-doc-cli lib/open-api-config.json --output ./public/schema.json",
+    "generate-ts": "openapi-typescript ./public/schema.json -o ./dist/schema.d.ts"
   },
   "dependencies": {
     "next": "14.0.2",

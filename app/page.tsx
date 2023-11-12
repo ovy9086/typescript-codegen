@@ -42,10 +42,5 @@ async function fetchUserData() {
   return userInfo;
 }
 
-// type User = {
-//   id: number;
-//   email: string;
-// };
-
 function sendEmail(text: string) {}
 function print(text: string) {}
