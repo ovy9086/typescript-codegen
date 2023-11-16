@@ -1,0 +1,35 @@
+query GetUserInfo {
+  getUserInfo {
+    id
+    email
+    firstName
+    lastName
+  }
+}
+
+query GetUserWithFriends {
+  getUserInfo {
+    id
+    email
+    firstName
+    lastName
+    friends {
+      id
+      firstName
+      lastName
+    }
+  }
+}
+
+query GetUserInfoAndFriendsSuggestions {
+  getUserInfo {
+    firstName
+    lastName
+  }
+  getFriendsSuggestions {
+    id
+    firstName
+    lastName
+    email
+  }
+}

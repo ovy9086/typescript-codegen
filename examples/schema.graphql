@@ -1,0 +1,16 @@
+type User {
+  id: Float!
+  firstName: String
+  lastName: String
+  email: String!
+  friends: [User]!
+}
+
+type Query {
+  getUserInfo: User!
+  getFriendsSuggestions: [User!]!
+}
+
+type Mutation {
+  addFriend(userId: Float!): User!
+}
