@@ -58,11 +58,11 @@ export type User = {
   lastName?: Maybe<Scalars["String"]["output"]>;
 };
 
-export type GetUserInfoQueryVariables = Exact<{
+export type GetUserDataQueryVariables = Exact<{
   [key: string]: never;
 }>;
 
-export type GetUserInfoQuery = {
+export type GetUserDataQuery = {
   __typename?: "Query";
   getUserInfo: {
     __typename?: "User";
@@ -73,13 +73,28 @@ export type GetUserInfoQuery = {
   };
 };
 
-export const GetUserInfoDocument = {
+export type GetUserDataManualQueryVariables = Exact<{
+  [key: string]: never;
+}>;
+
+export type GetUserDataManualQuery = {
+  __typename?: "Query";
+  getUserInfo: {
+    __typename?: "User";
+    id: number;
+    email: string;
+    firstName?: string | null;
+    lastName?: string | null;
+  };
+};
+
+export const GetUserDataDocument = {
   kind: "Document",
   definitions: [
     {
       kind: "OperationDefinition",
       operation: "query",
-      name: { kind: "Name", value: "GetUserInfo" },
+      name: { kind: "Name", value: "GetUserData" },
       selectionSet: {
         kind: "SelectionSet",
         selections: [
@@ -116,6 +131,52 @@ export const GetUserInfoDocument = {
     },
   ],
 } as unknown as DocumentNode<
-  GetUserInfoQuery,
-  GetUserInfoQueryVariables
+  GetUserDataQuery,
+  GetUserDataQueryVariables
+>;
+export const GetUserDataManualDocument = {
+  kind: "Document",
+  definitions: [
+    {
+      kind: "OperationDefinition",
+      operation: "query",
+      name: { kind: "Name", value: "GetUserDataManual" },
+      selectionSet: {
+        kind: "SelectionSet",
+        selections: [
+          {
+            kind: "Field",
+            name: { kind: "Name", value: "getUserInfo" },
+            selectionSet: {
+              kind: "SelectionSet",
+              selections: [
+                {
+                  kind: "Field",
+                  name: { kind: "Name", value: "id" },
+                },
+                {
+                  kind: "Field",
+                  name: { kind: "Name", value: "email" },
+                },
+                {
+                  kind: "Field",
+                  name: {
+                    kind: "Name",
+                    value: "firstName",
+                  },
+                },
+                {
+                  kind: "Field",
+                  name: { kind: "Name", value: "lastName" },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  GetUserDataManualQuery,
+  GetUserDataManualQueryVariables
 >;

@@ -6,7 +6,7 @@ import {
   gql,
 } from "@urql/core";
 import { graphql } from "../../lib/apis/gql";
-import { GetUserInfoQuery } from "../../lib/apis/graphql";
+import { GetUserDataQuery } from "../../lib/apis/graphql";
 
 const API_URL = "https://x.co";
 
@@ -16,7 +16,7 @@ const client = new Client({
 });
 
 const UserInfoQuery = gql`
-  query GetUserInfo {
+  query GetUserData {
     getUserInfo {
       id
       email
@@ -28,8 +28,9 @@ const UserInfoQuery = gql`
 
 const fetchUserInfo = async () => {
   const response =
-    await client.executeQuery<GetUserInfoQuery>(
+    await client.executeQuery<GetUserDataQuery>(
       createRequest(UserInfoQuery, {})
     );
   const body = response.data;
+  const firstName = body?.getUserInfo.firstName;
 };

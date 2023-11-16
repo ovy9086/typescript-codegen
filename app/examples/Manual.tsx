@@ -14,7 +14,7 @@ const client = new Client({
 });
 
 const UserInfoQueryManual = gql`
-  query GetUserInfo {
+  query GetUserDataManual {
     getUserInfo {
       id
       email
@@ -37,4 +37,5 @@ const fetchUserInfo = async () => {
       createRequest(UserInfoQueryManual, {})
     );
   const body = response.data;
+  //^?
 };

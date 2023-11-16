@@ -13,8 +13,10 @@ import { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-  "\n  query GetUserInfo {\n    getUserInfo {\n      id\n      email\n      firstName\n      lastName\n    }\n  }\n":
-    types.GetUserInfoDocument,
+  "\n  query GetUserData {\n    getUserInfo {\n      id\n      email\n      firstName\n      lastName\n    }\n  }\n":
+    types.GetUserDataDocument,
+  "\n  query GetUserDataManual {\n    getUserInfo {\n      id\n      email\n      firstName\n      lastName\n    }\n  }\n":
+    types.GetUserDataManualDocument,
 };
 
 /**
@@ -35,8 +37,14 @@ export function graphql(source: string): unknown;
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: "\n  query GetUserInfo {\n    getUserInfo {\n      id\n      email\n      firstName\n      lastName\n    }\n  }\n",
-): (typeof documents)["\n  query GetUserInfo {\n    getUserInfo {\n      id\n      email\n      firstName\n      lastName\n    }\n  }\n"];
+  source: "\n  query GetUserData {\n    getUserInfo {\n      id\n      email\n      firstName\n      lastName\n    }\n  }\n",
+): (typeof documents)["\n  query GetUserData {\n    getUserInfo {\n      id\n      email\n      firstName\n      lastName\n    }\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: "\n  query GetUserDataManual {\n    getUserInfo {\n      id\n      email\n      firstName\n      lastName\n    }\n  }\n",
+): (typeof documents)["\n  query GetUserDataManual {\n    getUserInfo {\n      id\n      email\n      firstName\n      lastName\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
